@@ -1,0 +1,308 @@
+:root {
+  --color-primary: #f5a4a4;
+  --color-secondary: #ffffff;
+  --color-text: #333333;
+  --radius: 12px;
+  --gap: 24px;
+  --padding: 16px;
+  --font-family: 'Arial', sans-serif;
+  --font-size: 16px;
+  --banner-max-height: 300px;
+  --footer-bg: #eee;
+  --footer-text: #333333;
+  --btn-hover-dark: #DD9494;
+}
+
+/* 1. Reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* 2. Base */
+html, body {
+  height: 100%;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: var(--font-family);
+  font-size: var(--font-size);
+  color: var(--color-text);
+  background: var(--color-secondary);
+  line-height: 1.5;
+}
+
+/* 3. Layout */
+.site-header {
+  background: var(--color-primary);
+  padding: var(--padding);
+}
+.navbar {
+  display: flex;
+  justify-content: center;
+}
+.nav-list {
+  list-style: none;
+  display: flex;
+  gap: var(--gap);
+}
+.nav-link {
+  text-decoration: none;
+  color: var(--color-text);
+  font-weight: bold;
+  padding: 4px 8px;
+}
+.nav-link.active,
+.nav-link:hover {
+  text-decoration: underline;
+}
+
+.content-container,
+.form-container {
+  flex: 1;
+  max-width: 960px;
+  width: 100%;
+  margin: 0 auto;
+  padding: var(--padding);
+}
+
+.site-footer {
+  background: var(--footer-bg);
+  padding: var(--padding);
+  text-align: center;
+  margin-top: var(--gap);
+}
+
+/* 4. Components */
+
+/* Banners */
+.page-image {
+  width: 100%;
+  height: auto;
+  max-height: var(--banner-max-height);
+  object-fit: cover;
+  margin-bottom: var(--gap);
+  border-radius: var(--radius);
+  object-position: center center;
+}
+.page-image-history   { object-position: center center; }
+.page-image-donations { object-position: 20% 20%; }
+.page-image-stories   { object-position: 20% 40%; }
+.page-image-news      { object-position: center center; }
+.page-image-abuse     { object-position: center center; }
+
+/* Page Title */
+.page-title {
+  font-size: 32px;
+  text-align: center;
+  margin-bottom: var(--gap);
+}
+
+/* History content */
+.history-content {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--gap);
+}
+.history-content .history-text { flex:1; }
+
+/* Donations */
+.donation-section {
+  margin-bottom: var(--gap);
+}
+.donation-section h2 {
+  margin-bottom: 8px;
+}
+.donation-section ul {
+  list-style: disc inside;
+}
+
+/* Stories */
+.story-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: var(--gap);
+  margin-top: var(--gap);
+}
+.story-card {
+  background: var(--color-secondary);
+  padding: var(--padding);
+  border-radius: var(--radius);
+  text-align: center;
+}
+.story-image {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius);
+  margin-bottom: calc(var(--gap)/2);
+  object-fit: cover;
+}
+
+/* Stats */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: var(--gap);
+  margin-top: var(--gap);
+}
+.stat-item {
+  background: var(--color-secondary);
+  padding: var(--padding);
+  border-radius: var(--radius);
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+.stat-item h2 {
+  font-size: 2rem;
+  margin-bottom: 8px;
+  color: var(--color-primary);
+}
+.stat-item p {
+  font-size: 1rem;
+  color: var(--color-text);
+}
+
+/* News */
+.news-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: var(--gap);
+  margin-top: var(--gap);
+}
+.news-item {
+  background: var(--color-secondary);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+}
+.news-image {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+}
+.news-item h2 {
+  font-size: 1.25rem;
+  margin: var(--padding) var(--padding) 8px;
+}
+.news-item p {
+  flex: 1;
+  margin: 0 var(--padding) var(--padding);
+  color: var(--color-text);
+  font-size: 0.95rem;
+}
+.read-more {
+  display: block;
+  text-align: right;
+  margin: 0 var(--padding) var(--padding);
+  color: var(--color-primary);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* Forms */
+.contact-form,
+.adoption-section form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap);
+}
+.contact-form label,
+.adoption-section label {
+  font-weight: bold;
+  color: #555;
+}
+.contact-form input,
+.contact-form textarea,
+.adoption-section input[type="text"],
+.adoption-section input[type="tel"],
+.adoption-section input[type="number"],
+.adoption-section select,
+.adoption-section input[type="file"],
+.adoption-section textarea {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: var(--font-size);
+  font-family: var(--font-family);
+  box-sizing: border-box;
+}
+
+/* 🚩 Ajuste de radios inline */
+.adoption-section input[type="radio"],
+.contact-form input[type="radio"],
+.adoption-section input[type="radio"] + label,
+.contact-form input[type="radio"] + label {
+  display: inline-block;
+  vertical-align: middle;
+  margin-bottom: 0;
+}
+.adoption-section input[type="radio"] + label,
+.contact-form input[type="radio"] + label {
+  margin-right: 16px;
+}
+
+/* Botões */
+.submit-button,
+.adopt-button {
+  background-color: var(--color-primary);
+  color: var(--color-secondary);
+  border: none;
+  padding: 12px 24px;
+  border-radius: 4px;
+  font-size: var(--font-size);
+  cursor: pointer;
+}
+.submit-button:hover,
+.adopt-button:hover {
+  background-color: var(--btn-hover-dark);
+}
+
+/* Footer */
+.contact {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--gap);
+  margin-bottom: var(--gap);
+}
+.contact-item {
+  font-size: 14px;
+  color: var(--footer-text);
+}
+.contact-item a {
+  text-decoration: none;
+  color: var(--footer-text);
+}
+.footer-credit {
+  font-size: 14px;
+  color: var(--footer-text);
+}
+
+/* Utilities */
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 6. Media Queries */
+@media (max-width: 640px) {
+  .history-content {
+    flex-direction: column;
+    align-items: center;
+  }
+  .page-title {
+    text-align: left;
+  }
+  .story-list,
+  .stats-grid,
+  .news-list {
+    grid-template-columns: 1fr;
+  }
+}
